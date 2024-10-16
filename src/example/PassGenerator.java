@@ -4,9 +4,6 @@ import java.util.Random;
 class TestGenerator{
     public static void main(String[]args){
         PassGenerator meow=new PassGenerator();
-        meow.CharGenerator();
-        meow.IntegerGenerator();
-        meow.SpecCharGenerator();
         meow.FinalGeneration();
     }
 }
@@ -43,6 +40,9 @@ class PassGenerator{
         }
     }
     public void FinalGeneration(){
+        CharGenerator();
+        IntegerGenerator();
+        SpecCharGenerator();
         finalPassword.append(chars);
         finalPassword.append(ints);
         finalPassword.append(specChars);
