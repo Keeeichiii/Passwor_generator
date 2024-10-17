@@ -14,11 +14,11 @@ class PasswordPartsGenerator {
     String specialChar = "#$%^&*()!@[]{};:'\"<>,.?/\\|+-";
     private String shuffpass;
 
-    public String getShuffpass() {
+    protected String getShuffpass() {
         return shuffpass;
     }
 
-    public void setShuffpass(String shuffpass) {
+    protected void setShuffpass(String shuffpass) {
         this.shuffpass = shuffpass;
     }
 
