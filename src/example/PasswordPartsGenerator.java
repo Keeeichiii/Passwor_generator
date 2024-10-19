@@ -1,0 +1,50 @@
+package example;
+
+import java.util.Random;
+
+class PasswordPartsGenerator  {
+
+    Random ran_num = new Random();
+
+    StringBuilder chars = new StringBuilder();
+    StringBuilder ints = new StringBuilder();
+    StringBuilder specChars = new StringBuilder();
+    StringBuilder finalPassword = new StringBuilder();
+
+    String specialChar = "#$%^&*()!@[]{};:'\"<>,.?/\\|+-";
+    private String shuffpass;
+
+    protected String getShuffpass() {
+        return shuffpass;
+    }
+
+    protected void setShuffpass(String shuffpass) {
+        this.shuffpass = shuffpass;
+    }
+
+    protected void CharGenerator() {
+        for (int i = 0; i <3; i++) {
+            char rand_char = (char) (ran_num.nextInt(26) + 'a');
+            chars.append(rand_char);
+        }
+        for (int i = 0; i <3 ; i++) {
+            char rand_char_upper = (char) (ran_num.nextInt(26) + 'A');
+            chars.append(rand_char_upper);
+        }
+    }
+
+    protected void IntegerGenerator() {
+        for (int i = 0; i <3; i++) {
+            int rand_integer = ran_num.nextInt(10);
+            ints.append(rand_integer);
+        }
+    }
+
+    protected void SpecCharGenerator() {
+        for (int i = 0; i <3; i++) {
+            int index = ran_num.nextInt(specialChar.length());
+            char speclChar = specialChar.charAt(index);
+            specChars.append(speclChar);
+        }
+    }
+}
