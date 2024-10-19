@@ -1,17 +1,16 @@
 package example;
-
 import java.util.Random;
 
-class PasswordPartsGenerator  {
-
-    Random ran_num = new Random();
-
-    StringBuilder chars = new StringBuilder();
-    StringBuilder ints = new StringBuilder();
-    StringBuilder specChars = new StringBuilder();
-    StringBuilder finalPassword = new StringBuilder();
-
-    String specialChar = "#$%^&*()!@[]{};:'\"<>,.?/\\|+-";
+class PasswordPartsGenerator {
+    protected int sizeInts;
+    protected int sizeChars;
+    protected int sizeSpecC;
+    protected Random ran_num = new Random();
+    protected StringBuilder chars = new StringBuilder();
+    protected StringBuilder ints = new StringBuilder();
+    protected StringBuilder specChars = new StringBuilder();
+    protected StringBuilder finalPassword = new StringBuilder();
+    protected String specialChar = "#$%^&*()!@[]{};:'\"<>,.?/\\|+-";
     private String shuffpass;
 
     protected String getShuffpass() {
@@ -22,29 +21,35 @@ class PasswordPartsGenerator  {
         this.shuffpass = shuffpass;
     }
 
+    protected void setSizes(int sizeInts, int sizeChars, int sizeSpecC) {
+        this.sizeInts = sizeInts;
+        this.sizeChars = sizeChars;
+        this.sizeSpecC = sizeSpecC;
+    }
+
     protected void CharGenerator() {
-        for (int i = 0; i <3; i++) {
-            char rand_char = (char) (ran_num.nextInt(26) + 'a');
-            chars.append(rand_char);
+        for (int i = 0; i < sizeChars / 2; i++) {
+            char randChar = (char) (ran_num.nextInt(26) + 'a');
+            chars.append(randChar);
         }
-        for (int i = 0; i <3 ; i++) {
-            char rand_char_upper = (char) (ran_num.nextInt(26) + 'A');
-            chars.append(rand_char_upper);
+        for (int i = 0; i < sizeChars / 2; i++) {
+            char randCharUpper = (char) (ran_num.nextInt(26) + 'A');
+            chars.append(randCharUpper);
         }
     }
 
     protected void IntegerGenerator() {
-        for (int i = 0; i <3; i++) {
-            int rand_integer = ran_num.nextInt(10);
-            ints.append(rand_integer);
+        for (int i = 0; i < sizeInts; i++) {
+            int randInteger = ran_num.nextInt(10);
+            ints.append(randInteger);
         }
     }
 
     protected void SpecCharGenerator() {
-        for (int i = 0; i <3; i++) {
+        for (int i = 0; i < sizeSpecC; i++) {
             int index = ran_num.nextInt(specialChar.length());
-            char speclChar = specialChar.charAt(index);
-            specChars.append(speclChar);
+            char specChar = specialChar.charAt(index);
+            specChars.append(specChar);
         }
     }
 }
