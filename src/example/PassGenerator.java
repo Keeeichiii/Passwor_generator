@@ -3,7 +3,6 @@ package example;
 public class PassGenerator extends PasswordPartsGenerator {
 
     protected void InitializationAndAdding() {
-
         CharGenerator();
         IntegerGenerator();
         SpecCharGenerator();
@@ -13,9 +12,9 @@ public class PassGenerator extends PasswordPartsGenerator {
     }
 
     protected void FinalGeneration() {
-
         InitializationAndAdding();
         char[] passwordArray = finalPassword.toString().toCharArray();
+
 
         for (int i = passwordArray.length - 1; i > 0; i--) {
             int j = ran_num.nextInt(i + 1);
@@ -33,6 +32,10 @@ public class PassGenerator extends PasswordPartsGenerator {
         size.Interface();
         setSizes(size.getSizeInts(), size.getSizeChars(), size.getSizeSpecC());
         FinalGeneration();
-        System.out.println("Сгенерированный пароль: " + getShuffpass()+"\nдлина пароля:"+getShuffpass().length());
+        GetJson json = new GetJson();
+        json.setShuffpass(getShuffpass());
+        json.writePassInFile();
+        System.out.println("Сгенерированный пароль: " + getShuffpass() + "" +
+                           "\nДлина пароля: " + getShuffpass().length());
     }
 }

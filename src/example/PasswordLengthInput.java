@@ -2,7 +2,6 @@ package example;
 import java.util.Scanner;
 
 public class PasswordLengthInput extends PasswordPartsGenerator {
-
     Scanner input = new Scanner(System.in);
     int length;
 
