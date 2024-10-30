@@ -48,7 +48,7 @@ class PasswordPartsGenerator {
     protected void SpecCharGenerator() {
         for (int i = 0; i < sizeSpecC; i++) {
             int index = ran_num.nextInt(specialChar.length());
-            char specChar = specialChar.charAt(index);
+            char specChar = specialChar.charAt(inпшdex);
             specChars.append(specChar);
         }
     }
